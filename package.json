@@ -1,0 +1,39 @@
+{
+  "name": "native-file-io-benchmark",
+  "version": "1.0.0",
+  "description": "Performance benchmark comparing native C++ file I/O vs standard TypeScript",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build:native": "node-gyp rebuild",
+    "build:ts": "tsc",
+    "build": "npm run build:ts && npm run build:native",
+    "benchmark": "ts-node benchmark.ts",
+    "clean": "node-gyp clean && rimraf build benchmark_data *.js",
+    "install": "node-gyp rebuild || echo 'Native addon build failed, will use JS fallback'"
+  },
+  "keywords": [
+    "native",
+    "addon",
+    "performance",
+    "file-io",
+    "simd",
+    "mmap",
+    "benchmark"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "node-gyp": "^10.0.0",
+    "rimraf": "^5.0.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "node-addon-api": "^7.1.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

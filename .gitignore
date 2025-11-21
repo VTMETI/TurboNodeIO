@@ -1,0 +1,7 @@
+*.d.ts
+.DS_Store
+Thumbs.db
+build/
+node_modules/
+benchmark_data/
+package-lock.json
